@@ -6,10 +6,12 @@
     <title>Railway Management System API</title>
 </head>
 <body>
+
     <h1>Railway Management System API</h1>
     <p>
         This is a Django-based application that manages railway operations, including user registration, login, seat availability checks, booking seats, and viewing booking details. It features role-based access (Admin and User) and ensures proper handling of concurrent bookings.
     </p>
+
     <hr>
 
     <h2>Installation</h2>
@@ -20,10 +22,8 @@
         </li>
         <li>
             <strong>Set up a virtual environment</strong>
-            <pre><code>
-python -m venv venv
-source venv/bin/activate  # For Windows: venv\Scripts\activate
-            </code></pre>
+            <pre><code>python -m venv venv</code></pre>
+            <pre><code>source venv/bin/activate  # For Windows: venv\Scripts\activate</code></pre>
         </li>
         <li>
             <strong>Install dependencies</strong>
@@ -53,6 +53,7 @@ DATABASES = {
             </code></pre>
         </li>
     </ol>
+
     <hr>
 
     <h2>Setup</h2>
@@ -70,6 +71,7 @@ DATABASES = {
             <pre><code>python manage.py runserver</code></pre>
         </li>
     </ol>
+
     <hr>
 
     <h2>API Endpoints</h2>
@@ -103,6 +105,7 @@ DATABASES = {
             </code></pre>
         </li>
     </ul>
+
     <hr>
 
     <h3>Admin Features</h3>
@@ -124,6 +127,7 @@ DATABASES = {
             <pre><code>X-API-KEY: your_admin_api_key</code></pre>
         </li>
     </ul>
+
     <hr>
 
     <h3>User Features</h3>
@@ -152,5 +156,6 @@ DATABASES = {
             <pre><code>Authorization: Token your_user_token</code></pre>
         </li>
     </ul>
+
 </body>
 </html>
