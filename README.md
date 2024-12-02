@@ -6,17 +6,17 @@ A robust railway management system built using Django, enabling users to registe
 
 ## 🚀 Features
 
-- **User Roles:** Separate functionalities for Admin and User, ensuring a clear distinction of responsibilities.
-- **Secure Bookings:** Prevents double-booking issues with advanced race condition handling.
-- **Effortless Authentication:** Secure login and registration functionality for seamless user experience.
-- **APIs:** Well-documented endpoints for easy integration with frontend or other systems.
-- **Database Support:** Powered by PostgreSQL for reliable, efficient, and scalable data storage.
-- **Real-time Updates:** Dynamically updates seat availability in real time during booking operations.
-- **Role-based Access Control:** Admin-specific APIs secured with API key authentication for enhanced security.
-- **Customizable Trains:** Admins can easily add new trains, specifying source, destination, and total seat capacity.
-- **Platform Independence:** Fully functional on Windows, macOS, and Linux systems.
-- **Scalability:** Designed to handle multiple users and concurrent booking requests efficiently.
-- **Extensibility:** Built with Django's modularity for easy addition of new features and integrations.
+- 👥 **User Roles:** Separate functionalities for Admin and User, ensuring a clear distinction of responsibilities.  
+- 🔒 **Secure Bookings:** Prevents double-booking issues with advanced race condition handling.  
+- 🔑 **Effortless Authentication:** Secure login and registration functionality for seamless user experience.  
+- 📖 **APIs:** Well-documented endpoints for easy integration with frontend or other systems.  
+- 🗄️ **Database Support:** Powered by PostgreSQL for reliable, efficient, and scalable data storage.  
+- ⏱️ **Real-time Updates:** Dynamically updates seat availability in real time during booking operations.  
+- 🛡️ **Role-based Access Control:** Admin-specific APIs secured with API key authentication for enhanced security.  
+- 🚆 **Customizable Trains:** Admins can easily add new trains, specifying source, destination, and total seat capacity.  
+- 💻 **Platform Independence:** Fully functional on Windows, macOS, and Linux systems.  
+- 📈 **Scalability:** Designed to handle multiple users and concurrent booking requests efficiently.  
+- 🔧 **Extensibility:** Built with Django's modularity for easy addition of new features and integrations.  
 
 
 ---
