@@ -94,7 +94,7 @@ A robust railway management system built using Django, enabling users to registe
 
 ## 🌐 API Endpoints
 
-Below are the available API endpoints for the Railway Management System, along with example payloads and responses:
+Below are the available API endpoints for the Railway Management System, along with example payloads and responses using the dummy user credentials.
 
 ---
 
@@ -107,8 +107,8 @@ Below are the available API endpoints for the Railway Management System, along w
    - **Request Payload:**
      ```json
      {
-       "username": "john_doe",
-       "password": "secure_password",
+       "username": "kunaldoliya",
+       "password": "123456789",
        "is_admin": false
      }
      ```
@@ -127,8 +127,8 @@ Below are the available API endpoints for the Railway Management System, along w
    - **Request Payload:**
      ```json
      {
-       "username": "john_doe",
-       "password": "secure_password"
+       "username": "kunaldoliya",
+       "password": "123456789"
      }
      ```
    - **Response Example:**
@@ -147,11 +147,11 @@ Below are the available API endpoints for the Railway Management System, along w
    - **Endpoint:** `/add_train/`  
    - **Method:** `POST`  
    - **Description:** Enables an admin to add a new train with source, destination, and total seats.  
-   - **Request Payload:**
+   - **Request Payload (Admin Credentials):**
      ```json
      {
-       "source": "Station_A",
-       "destination": "Station_B",
+       "source": "Bhopal",
+       "destination": "Indore",
        "total_seats": 100
      }
      ```
@@ -159,20 +159,20 @@ Below are the available API endpoints for the Railway Management System, along w
      ```json
      {
        "message": "Train added successfully",
-       "train_id": 5
+       "train_id": 10
      }
      ```
 
 2. **Check Seat Availability**  
-   - **Endpoint:** `/check_availability/<str:source>/<str:destination>/`  
+   - **Endpoint:** `/check_availability/Bhopal/Indore/`  
    - **Method:** `GET`  
    - **Description:** Checks the seat availability for a train between the specified source and destination.  
    - **Response Example:**
      ```json
      {
-       "source": "Station_A",
-       "destination": "Station_B",
-       "available_seats": 42
+       "source": "Bhopal",
+       "destination": "Indore",
+       "available_seats": 50
      }
      ```
 
@@ -187,7 +187,7 @@ Below are the available API endpoints for the Railway Management System, along w
    - **Request Payload:**
      ```json
      {
-       "train_id": 5,
+       "train_id": 10,
        "seats_to_book": 2
      }
      ```
@@ -195,7 +195,7 @@ Below are the available API endpoints for the Railway Management System, along w
      ```json
      {
        "message": "Seats booked successfully",
-       "booking_id": 101,
+       "booking_id": 201,
        "booked_seats": 2
      }
      ```
@@ -210,16 +210,17 @@ Below are the available API endpoints for the Railway Management System, along w
        "user_id": 1,
        "bookings": [
          {
-           "booking_id": 101,
-           "train_id": 5,
-           "source": "Station_A",
-           "destination": "Station_B",
+           "booking_id": 201,
+           "train_id": 10,
+           "source": "Bhopal",
+           "destination": "Indore",
            "seats_booked": 2,
            "date": "2024-12-01"
          }
        ]
      }
      ```
+
 
 
 2. **Authorization Header:**  
