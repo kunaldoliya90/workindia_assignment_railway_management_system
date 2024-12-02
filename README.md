@@ -1,165 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
+# Railway Management System API
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Railway Management System API</title>
-</head>
+A robust railway management system built using Django, enabling users to register, log in, check seat availability, book seats, and view their booking details. This system incorporates role-based access control (Admin and User) and efficiently handles concurrent seat bookings to prevent race conditions.
 
-<body>
+---
 
-    <h1>Railway Management System API</h1>
-    <p>This is a Django-based application that manages railway operations, including user registration, login, seat
-        availability checks, booking seats, and viewing booking details. It features role-based access (Admin and User)
-        and ensures proper handling of concurrent bookings.</p>
+## 🚀 Features
 
-    <hr>
+- **User Roles:** Separate functionalities for Admin and User.
+- **Secure Bookings:** Avoids double-booking issues with race condition handling.
+- **APIs:** Well-documented endpoints for seamless integration.
+- **Database Support:** Powered by PostgreSQL for reliable and scalable data storage.
 
-    <h2>Installation</h2>
-    <ol>
-        <li>
-            <strong>Clone the repository</strong>
-            <pre><code>git clone https://github.com/kunaldoliya90/workindia_assignment_railway_management_system.git</code></pre>
-        </li>
-        <li>
-            <strong>Set up a virtual environment</strong>
-            <pre><code>python -m venv venv</code></pre>
-            <pre><code>source venv/bin/activate  # For Windows: venv\Scripts\activate</code></pre>
-        </li>
-        <li>
-            <strong>Install dependencies</strong>
-            <pre><code>pip install -r requirements.txt</code></pre>
-        </li>
-        <li>
-            <strong>Install PostgreSQL</strong>
-            <p>If you don’t already have PostgreSQL installed, follow the <a href="https://www.postgresql.org/docs/"
-                    target="_blank">official PostgreSQL guide</a>.</p>
-        </li>
-        <li>
-            <strong>Create a PostgreSQL database</strong>
-            <pre><code>psql -U postgres -c "CREATE DATABASE railway_management_test;"</code></pre>
-        </li>
-        <li>
-            <strong>Configure the database in <code>settings.py</code></strong>
-            <pre><code>
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway_management_test',
-        'USER': 'your_postgres_username',
-        'PASSWORD': 'your_postgres_password',
-        'HOST': 'localhost',
-        'PORT': '5432',
+---
+
+## 🛠️ Installation Steps
+
+1. **Clone the Repository:**
+
+    ```bash
+    git clone https://github.com/kunaldoliya90/workindia_assignment_railway_management_system.git
+    cd workindia_assignment_railway_management_system
+    ```
+
+2. **Create and Activate a Virtual Environment:**
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # For Windows: `venv\Scripts\activate`
+    ```
+
+3. **Install Dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Install PostgreSQL** if not already installed. Refer to the [PostgreSQL Documentation](https://www.postgresql.org/docs/) for installation instructions.
+
+5. **Set Up PostgreSQL Database:**
+
+    ```bash
+    psql -U postgres -c "CREATE DATABASE railway_management_test;"
+    ```
+
+6. **Update Database Settings:**
+
+    Edit the `DATABASES` section in `settings.py` with your PostgreSQL credentials:
+
+    ```python
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'railway_management_test',
+            'USER': 'your_postgres_username',
+            'PASSWORD': 'your_postgres_password',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
     }
-}
-            </code></pre>
-        </li>
-    </ol>
+    ```
 
-    <hr>
+---
 
-    <h2>Setup</h2>
-    <ol>
-        <li>
-            <strong>Apply database migrations</strong>
-            <pre><code>python manage.py migrate</code></pre>
-        </li>
-        <li>
-            <strong>Create an admin user</strong>
-            <pre><code>python manage.py createsuperuser</code></pre>
-        </li>
-        <li>
-            <strong>Run the development server</strong>
-            <pre><code>python manage.py runserver</code></pre>
-        </li>
-    </ol>
+## 🧑‍💻 Project Setup
 
-    <hr>
+1. **Apply Migrations:**
 
-    <h2>API Endpoints</h2>
-    <p>All endpoints are prefixed with <code>/booking/</code>.</p>
+    ```bash
+    python manage.py migrate
+    ```
 
-    <h3>Authentication</h3>
-    <ul>
-        <li>
-            <strong>Register a User</strong>
-            <p><strong>URL:</strong> <code>/booking/register/</code></p>
-            <p><strong>Method:</strong> POST</p>
-            <p><strong>Request Body:</strong></p>
-            <pre><code>
-{
-    "username": "your_username",
-    "password": "your_password",
-    "is_admin": false
-}
-            </code></pre>
-        </li>
-        <li>
-            <strong>Login</strong>
-            <p><strong>URL:</strong> <code>/booking/login/</code></p>
-            <p><strong>Method:</strong> POST</p>
-            <p><strong>Request Body:</strong></p>
-            <pre><code>
-{
-    "username": "your_username",
-    "password": "your_password"
-}
-            </code></pre>
-        </li>
-    </ul>
+2. **Create a Superuser:**
 
-    <hr>
+    ```bash
+    python manage.py createsuperuser
+    ```
 
-    <h3>Admin Features</h3>
-    <p>Admin-only endpoints require an API key sent in the <code>X-API-KEY</code> header.</p>
-    <ul>
-        <li>
-            <strong>Add a Train</strong>
-            <p><strong>URL:</strong> <code>/booking/add_train/</code></p>
-            <p><strong>Method:</strong> POST</p>
-            <p><strong>Request Body:</strong></p>
-            <pre><code>
-{
-    "source": "Station_A",
-    "destination": "Station_B",
-    "total_seats": 100
-}
-            </code></pre>
-            <p><strong>Headers:</strong></p>
-            <pre><code>X-API-KEY: your_admin_api_key</code></pre>
-        </li>
-    </ul>
+3. **Start the Development Server:**
 
-    <hr>
+    ```bash
+    python manage.py runserver
+    ```
 
-    <h3>User Features</h3>
-    <ul>
-        <li>
-            <strong>Check Seat Availability</strong>
-            <p><strong>URL:</strong> <code>/booking/check_availability/&lt;source&gt;/&lt;destination&gt;/</code></p>
-            <p><strong>Method:</strong> GET</p>
-        </li>
-        <li>
-            <strong>Book a Seat</strong>
-            <p><strong>URL:</strong> <code>/booking/book_seat/</code></p>
-            <p><strong>Method:</strong> POST</p>
-            <p><strong>Request Body:</strong></p>
-            <pre><code>
-{
-    "train_id": 1
-}
-            </code></pre>
-        </li>
-        <li>
-            <strong>View Booking Details</strong>
-            <p><strong>URL:</strong> <code>/booking/booking_details/</code></p>
-            <p><strong>Method:</strong> GET</p>
-            <p><strong>Authorization:</strong> Requires user token in the header:</p>
-            <pre><code>Authorization: Token your_user_token</code></pre>
-        </li>
-    </ul>
+---
 
-</body>
+## 📚 API Endpoints
 
-</html>
+All endpoints are prefixed with `/booking/`.
+
+### 🛂 Authentication
+
+1. **Register User:**
+   - **Endpoint:** `/booking/register/`
+   - **Method:** `POST`
+   - **Payload:**
+     ```json
+     {
+       "username": "your_username",
+       "password": "your_password",
+       "is_admin": false
+     }
+     ```
+
+2. **Login User:**
+   - **Endpoint:** `/booking/login/`
+   - **Method:** `POST`
+   - **Payload:**
+     ```json
+     {
+       "username": "your_username",
+       "password": "your_password"
+     }
+     ```
+
+---
+
+### 🔑 Admin Endpoints (Protected by API Key)
+
+1. **Add a New Train:**
+   - **Endpoint:** `/booking/add_train/`
+   - **Method:** `POST`
+   - **Payload:**
+     ```json
+     {
+       "source": "Station_A",
+       "destination": "Station_B",
+       "total_seats": 100
+     }
+     ```
+
+2. **Authorization Header:**  
+   Include your API key in the header for admin-specific actions:
+   ```bash
+   X-API-KEY: your_secret_key
