@@ -222,8 +222,20 @@ Below are the available API endpoints for the Railway Management System, along w
      ```
 
 
-
 2. **Authorization Header:**  
    Include your API key in the header for admin-specific actions:
    ```bash
    Token: "Token <token_of_admin>"
+
+Attaching Images:
+
+![userRegisterEndpoint](https://github.com/user-attachments/assets/b8b4e0e5-9013-442c-be39-4efb523e0982)
+![adminRegisterEndpoint](https://github.com/user-attachments/assets/c94e6076-5cfe-472b-b525-735fbaae8180)
+![userLoginEndpoint](https://github.com/user-attachments/assets/88bb80f7-8c11-4aba-aa4c-5cf95db0e404)
+![adminLoginEndpoint](https://github.com/user-attachments/assets/7371dd0f-1860-4657-96f7-69cbcc357808)
+![addTrainEndpoint-1](https://github.com/user-attachments/assets/b38252b9-5893-4cc8-8ff9-528a0e654952)
+![addTrainEndpoint-2](https://github.com/user-attachments/assets/5bf42ee8-b9ad-495c-b802-9121463f59a8)
+![checkAvailabilityEndpoint](https://github.com/user-attachments/assets/ed4c1ad3-c559-4811-9312-f3ac0d0e033a)
+![bookSeatEndpoint](https://github.com/user-attachments/assets/6429cbfd-27e5-4bd2-9444-0738875ca9c8)
+![bookSeatEndpoint2](https://github.com/user-attachments/assets/7ae9d96d-5534-4d54-aa83-217a309da251)
+![bookingDetailsEndpoint](https://github.com/user-attachments/assets/336b74d9-4c65-429f-bff5-afde73640df6)
