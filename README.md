@@ -226,4 +226,4 @@ Below are the available API endpoints for the Railway Management System, along w
 2. **Authorization Header:**  
    Include your API key in the header for admin-specific actions:
    ```bash
-   X-API-KEY: your_secret_key
+   Token: "Token <token_of_admin>"
