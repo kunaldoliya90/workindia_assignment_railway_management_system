@@ -92,43 +92,62 @@ A robust railway management system built using Django, enabling users to registe
 
 ---
 
-## 📚 API Endpoints
+## 🌐 API Endpoints
 
-All endpoints are prefixed with `/booking/`.
+Below are the available API endpoints for the Railway Management System, along with example payloads and responses:
 
-### 🛂 Authentication
+---
 
-1. **Register User:**
-   - **Endpoint:** `/booking/register/`
-   - **Method:** `POST`
-   - **Payload:**
+### 🛂 Authentication Endpoints
+
+1. **Register User**  
+   - **Endpoint:** `/register/`  
+   - **Method:** `POST`  
+   - **Description:** Allows a user to register with a username, password, and role (Admin/User).  
+   - **Request Payload:**
      ```json
      {
-       "username": "your_username",
-       "password": "your_password",
+       "username": "john_doe",
+       "password": "secure_password",
        "is_admin": false
      }
      ```
-
-2. **Login User:**
-   - **Endpoint:** `/booking/login/`
-   - **Method:** `POST`
-   - **Payload:**
+   - **Response Example:**
      ```json
      {
-       "username": "your_username",
-       "password": "your_password"
+       "message": "User registered successfully",
+       "user_id": 1
+     }
+     ```
+
+2. **Login User**  
+   - **Endpoint:** `/login/`  
+   - **Method:** `POST`  
+   - **Description:** Authenticates a user and returns a session token for subsequent requests.  
+   - **Request Payload:**
+     ```json
+     {
+       "username": "john_doe",
+       "password": "secure_password"
+     }
+     ```
+   - **Response Example:**
+     ```json
+     {
+       "message": "Login successful",
+       "token": "abcd1234efgh5678"
      }
      ```
 
 ---
 
-### 🔑 Admin Endpoints (Protected by API Key)
+### 🚆 Train Management Endpoints
 
-1. **Add a New Train:**
-   - **Endpoint:** `/booking/add_train/`
-   - **Method:** `POST`
-   - **Payload:**
+1. **Add Train**  
+   - **Endpoint:** `/add_train/`  
+   - **Method:** `POST`  
+   - **Description:** Enables an admin to add a new train with source, destination, and total seats.  
+   - **Request Payload:**
      ```json
      {
        "source": "Station_A",
@@ -136,6 +155,72 @@ All endpoints are prefixed with `/booking/`.
        "total_seats": 100
      }
      ```
+   - **Response Example:**
+     ```json
+     {
+       "message": "Train added successfully",
+       "train_id": 5
+     }
+     ```
+
+2. **Check Seat Availability**  
+   - **Endpoint:** `/check_availability/<str:source>/<str:destination>/`  
+   - **Method:** `GET`  
+   - **Description:** Checks the seat availability for a train between the specified source and destination.  
+   - **Response Example:**
+     ```json
+     {
+       "source": "Station_A",
+       "destination": "Station_B",
+       "available_seats": 42
+     }
+     ```
+
+---
+
+### 🪑 Booking Endpoints
+
+1. **Book Seat**  
+   - **Endpoint:** `/book_seat/`  
+   - **Method:** `POST`  
+   - **Description:** Allows users to book a seat for a specific train.  
+   - **Request Payload:**
+     ```json
+     {
+       "train_id": 5,
+       "seats_to_book": 2
+     }
+     ```
+   - **Response Example:**
+     ```json
+     {
+       "message": "Seats booked successfully",
+       "booking_id": 101,
+       "booked_seats": 2
+     }
+     ```
+
+2. **View Booking Details**  
+   - **Endpoint:** `/booking_details/`  
+   - **Method:** `GET`  
+   - **Description:** Retrieves the booking details for the authenticated user.  
+   - **Response Example:**
+     ```json
+     {
+       "user_id": 1,
+       "bookings": [
+         {
+           "booking_id": 101,
+           "train_id": 5,
+           "source": "Station_A",
+           "destination": "Station_B",
+           "seats_booked": 2,
+           "date": "2024-12-01"
+         }
+       ]
+     }
+     ```
+
 
 2. **Authorization Header:**  
    Include your API key in the header for admin-specific actions:
