@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Railway Management System API</title>
 </head>
+
 <body>
 
     <h1>Railway Management System API</h1>
-    <p>
-        This is a Django-based application that manages railway operations, including user registration, login, seat availability checks, booking seats, and viewing booking details. It features role-based access (Admin and User) and ensures proper handling of concurrent bookings.
-    </p>
+    <p>This is a Django-based application that manages railway operations, including user registration, login, seat
+        availability checks, booking seats, and viewing booking details. It features role-based access (Admin and User)
+        and ensures proper handling of concurrent bookings.</p>
 
     <hr>
 
@@ -31,7 +33,8 @@
         </li>
         <li>
             <strong>Install PostgreSQL</strong>
-            <p>If you don’t already have PostgreSQL installed, follow the <a href="https://www.postgresql.org/docs/" target="_blank">official PostgreSQL guide</a>.</p>
+            <p>If you don’t already have PostgreSQL installed, follow the <a href="https://www.postgresql.org/docs/"
+                    target="_blank">official PostgreSQL guide</a>.</p>
         </li>
         <li>
             <strong>Create a PostgreSQL database</strong>
@@ -158,4 +161,5 @@ DATABASES = {
     </ul>
 
 </body>
+
 </html>
